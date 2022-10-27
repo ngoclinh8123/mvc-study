@@ -42,7 +42,13 @@
 
             if(file_exists('app/controllers/'.($this->__controller).'.php')){
                 require_once 'controllers/'.($this->__controller).'.php';
-                $this->__controller =new $this->__controller();
+
+                // kiểm tra class tồn tại
+                if(class_exists($this->__controller)){
+                    $this->__controller =new $this->__controller();
+                }else{
+                    $this->loadError();
+                }
 
                 // xử lý action
                 if(!empty($urlArr[1])){
@@ -53,7 +59,12 @@
                 // xử lý param
                 $this->__params=array_values($urlArr);
                 
-                call_user_func_array([$this->__controller,$this->__action],$this->__params);
+                // kiểm tra hàm tồn tại mới thưc hiện 
+                if(method_exists($this->__controller,$this->__action)){
+                    call_user_func_array([$this->__controller,$this->__action],$this->__params);
+                }else{
+                    $this->loadError();
+                }
             }else{
                 $this->loadError();
             }   
