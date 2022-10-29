@@ -8,17 +8,15 @@
         }
 
         public function index(){
+            echo 'trang chu';
+        }
+        
+        public function list(){
             $data=$this->model_home->getList();
-            echo '<pre>';print_r($data);echo '</pre>';
+            //echo '<pre>';print_r($data);echo '</pre>';
+
+            // render view
+            $this->render('products/list',$data);
         }
 
-        public function detail($id=0){
-            $data=$this->model_home->getDetail($id);
-            echo $data;
-        }
-
-        public function search(){
-            $keyword=$_GET['keyword'];
-            echo 'tu khoa:'.$keyword;
-        }
     }
