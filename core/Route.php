@@ -10,7 +10,6 @@
             // trường hợp vào web mà không có route thì route mặc định là '/'
             if($url!="/"){
                 $url=trim($url,'/');
-                echo 'ok';
             }else{
                 $url='trang-chu';
             }

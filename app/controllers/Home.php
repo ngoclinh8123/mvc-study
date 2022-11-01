@@ -17,6 +17,12 @@
 
             // render view
             $this->render('products/list',$data);
+        }   
+
+        public function get(){
+            $data=$this->model_home->get();
+            // echo '<pre>';print_r($data);echo '</pre>';
+            $this->render('home/index',$data);
         }
 
     }

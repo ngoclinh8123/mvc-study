@@ -4,8 +4,7 @@
         private $__controller,$__action,$__params,$__routes;
 
         function __construct() {
-            global $routes;
-
+            global $routes,$config;
 
             // khoi tao routes
             $this->__routes=new Route();

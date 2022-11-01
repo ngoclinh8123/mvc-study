@@ -4,3 +4,5 @@
 
     $routes['trang-chu']='home';
     $routes['san-pham']='product/index';
+
+?>

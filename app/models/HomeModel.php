@@ -1,6 +1,6 @@
 <?php
-    class HomeModel{
-        protected $_table='products';
+    class HomeModel extends Model{
+        //protected $_table='test';
 
         public function getList(){
             $data=[
@@ -17,5 +17,10 @@
                 'tei3'
             ];
             return $data[$id];
+        }
+
+        public function get(){
+            $data=$this->db->query("select * from test where id=1")->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
         }
     }
