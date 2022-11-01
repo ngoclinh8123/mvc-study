@@ -10,7 +10,7 @@
         }
 
         public function index(){
-            echo 'product';
+            echo 'product-index';
         }
 
         public function getList(){
@@ -20,5 +20,11 @@
 
             // reder view
             $this->render('products/list',$this->data);
+        }
+
+        public function detail($id=0){
+            $this->data['content']='products/detail';
+            $this->data['detail_product']=$this->model_product->getDetail($id);
+            $this->render('layouts/client',$this->data);
         }
     }
